@@ -1,0 +1,152 @@
+:root {
+  --bg: #f1f7ed;
+  --surface: #ffffff;
+  --text: #243e36;
+  --muted: #4f635a;
+  --accent: #7ca982;
+  --line: #d6e2d1;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Avenir Next", Avenir, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  line-height: 1.55;
+}
+
+a {
+  color: var(--text);
+  text-underline-offset: 3px;
+}
+
+a:hover {
+  color: var(--accent);
+}
+
+.hero {
+  background: linear-gradient(160deg, var(--text) 0%, #2f4f46 100%);
+  color: #f7fbf5;
+  padding: 4.5rem 1.25rem 3.2rem;
+}
+
+.hero__inner {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.eyebrow {
+  margin: 0 0 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.78rem;
+  opacity: 0.85;
+}
+
+h1 {
+  margin: 0 0 0.4rem;
+  font-size: clamp(2rem, 5vw, 3rem);
+  line-height: 1.08;
+}
+
+.headline {
+  margin: 0 0 1.1rem;
+  font-size: clamp(1.04rem, 2.5vw, 1.35rem);
+  color: #d9e8d7;
+}
+
+.intro {
+  margin: 0;
+  max-width: 72ch;
+}
+
+.hero__meta {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin: 1.2rem 0 0;
+  padding: 0;
+  color: #d9e8d7;
+}
+
+.layout {
+  max-width: 900px;
+  margin: -1.5rem auto 0;
+  padding: 0 1.25rem 2rem;
+}
+
+section {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  box-shadow: 0 12px 25px rgba(36, 62, 54, 0.07);
+  padding: 1.2rem 1.2rem 1rem;
+  margin-bottom: 1rem;
+}
+
+h2 {
+  margin: 0 0 0.75rem;
+  font-size: 1.2rem;
+  color: var(--text);
+}
+
+h3 {
+  margin: 0;
+  font-size: 1.05rem;
+}
+
+ul {
+  margin: 0.3rem 0 0;
+  padding-left: 1.2rem;
+}
+
+li + li {
+  margin-top: 0.25rem;
+}
+
+p {
+  margin: 0.4rem 0 0;
+}
+
+.project + .project {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px dashed var(--line);
+}
+
+.project__meta {
+  margin-top: 0.2rem;
+  color: var(--muted);
+  font-size: 0.93rem;
+}
+
+.footer {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0.3rem 1.25rem 2rem;
+  color: var(--muted);
+  display: flex;
+  gap: 0.55rem;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (max-width: 760px) {
+  .hero {
+    padding-top: 3.5rem;
+  }
+
+  section {
+    padding: 1rem 1rem 0.85rem;
+  }
+}
