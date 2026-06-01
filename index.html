@@ -6,25 +6,50 @@
     <title>Jose Benitez | Senior Software Engineer</title>
     <meta
       name="description"
-      content="Resume of Jose Benitez, Senior Software Engineer based in Medellin, Colombia."
+      content="Resume of Jose Benitez, Senior Software Engineer. Full-stack web, AI agents, Web3, and integrations across healthcare, fintech, and enterprise."
     />
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
     <header class="hero">
       <div class="hero__inner">
-        <p class="eyebrow">Resume</p>
-        <h1>Jose Benitez</h1>
-        <p class="headline">Senior Software Engineer based in Medellin, Colombia</p>
+        <div class="hero__header">
+          <div class="hero__identity">
+            <p class="eyebrow">Resume</p>
+            <h1>Jose Benitez</h1>
+            <p class="headline">Senior Software Engineer based in Medellin, Colombia</p>
+          </div>
+          <img
+            class="hero__avatar"
+            src="./images/avatar.jpg"
+            alt="Jose Benitez"
+            width="112"
+            height="112"
+          />
+        </div>
         <p class="intro">
           I build end-to-end web platforms with a strong product mindset. At
           <strong>Monadical</strong> for the last <strong>8 years</strong>, I have delivered
           production systems across web applications, AI workflows, and Web3 integrations, with
           focus on system design, UI/UX/Product mindset, API integrations, and performance optimization.
         </p>
+        <p class="hero__summary">
+          Full-stack engineer · web applications, AI agents, Web3 · 3rd party integrations
+        </p>
         <ul class="hero__meta">
           <li>Electronics Engineer (B.Sc.)</li>
           <li>Universidad de Antioquia</li>
+          <li>
+            <a href="mailto:contact@yojosebenitez.lat">contact@yojosebenitez.lat</a>
+          </li>
+          <li>
+            <a href="https://www.linkedin.com/in/yojosebenitez/" target="_blank" rel="noopener noreferrer"
+              >LinkedIn</a
+            >
+          </li>
+          <li>
+            <a href="https://github.com/josezy" target="_blank" rel="noopener noreferrer">GitHub</a>
+          </li>
         </ul>
       </div>
     </header>
@@ -61,15 +86,38 @@
             <a href="https://www.cus-gnc.com/visualizer" target="_blank" rel="noopener noreferrer"
               >Project link</a
             >
+            ·
+            <button
+              type="button"
+              class="project__screenshot-toggle"
+              aria-expanded="false"
+              aria-controls="satellite-visualizer-screenshot"
+            >
+              Display screenshot
+            </button>
           </p>
+          <figure id="satellite-visualizer-screenshot" class="project__figure" hidden>
+            <img
+              src="./images/satellite-trajectory-visualizer.jpg"
+              alt="Satellite Trajectory Visualizer showing ISS orbit, telemetry panels, and ground station links over a 3D Earth view"
+              width="1232"
+              height="890"
+              loading="lazy"
+            />
+          </figure>
         </article>
 
         <article class="project">
           <h3>Creatrix - AI Coaching Agent</h3>
-          <p class="project__meta">Client: Monadical · Type: AI-Powered Coaching Platform</p>
+          <p class="project__meta">Client:
+            <a href="https://monadical.com" target="_blank" rel="noopener noreferrer"
+              >Monadical</a
+            >
+            · Type: AI-Powered Coaching Platform</p>
           <p>
-            AI platform that generates personalized coaching action items using structured
-            progression phases and user pattern context.
+            Professional creative agent that understands user patterns, strengthens relationships,
+            and generates personalized coaching action items through questionnaire-driven flows and
+            structured progression phases.
           </p>
           <ul>
             <li>
@@ -91,6 +139,15 @@
           </ul>
           <p>
             <a href="https://mycreatrix.com/" target="_blank" rel="noopener noreferrer">Live app</a>
+            ·
+            <button
+              type="button"
+              class="project__screenshot-toggle"
+              aria-expanded="false"
+              aria-controls="creatrix-screenshots"
+            >
+              Display screenshots
+            </button>
             <!-- ·
             <a
               href="https://docs.monadical.com/s/Yj90sJUnKX"
@@ -99,11 +156,44 @@
               >Architecture docs</a
             > -->
           </p>
+          <div id="creatrix-screenshots" class="project__figures" hidden>
+            <figure class="project__figure">
+              <img
+                src="./images/creatrix-positioning.jpg"
+                alt="Creatrix Decisions screen with a positioning reflection question and response input"
+                width="2444"
+                height="1706"
+                loading="lazy"
+              />
+            </figure>
+            <figure class="project__figure">
+              <img
+                src="./images/creatrix-admin-panel.jpg"
+                alt="Creatrix Admin Panel for editing phase prompt templates"
+                width="2486"
+                height="1690"
+                loading="lazy"
+              />
+            </figure>
+            <figure class="project__figure">
+              <img
+                src="./images/creatrix-daily-coach-pipeline.png"
+                alt="Creatrix daily coach output pipeline from assembled inputs through Claude to timeline items"
+                width="3405"
+                height="1212"
+                loading="lazy"
+              />
+            </figure>
+          </div>
         </article>
 
         <article class="project">
           <h3>SolanaLabs Bond - Web3 Loyalty Platform</h3>
-          <p class="project__meta">Client: SolanaLabs · Type: Loyalty and Brand Engagement Platform</p>
+          <p class="project__meta">Client:
+            <a href="https://www.solanalabs.com/" target="_blank" rel="noopener noreferrer"
+              >Solana Labs</a
+            >
+            · Type: Loyalty and Brand Engagement Platform</p>
           <p>
             Token-based campaign platform for brands with NFT ownership verification and automated
             reward triggers across multiple partner services.
@@ -118,7 +208,7 @@
               and end-to-end integration testing across services.
             </li>
             <li>
-              Supported onboarding of 2 to 3 brands (clothing and wine) before the project was shut
+              Supported onboarding of 2 brands (clothing and wine) before the project was shut
               down.
             </li>
           </ul>
@@ -126,7 +216,7 @@
 
         <article class="project">
           <h3>Real Estate Platform - Admin and Transaction Management</h3>
-          <p class="project__meta">Client: Personal Project · Type: Property Management and Marketplace</p>
+          <p class="project__meta">Client: Personal Project · Type: Property Management</p>
           <p>
             Platform for managing property inventory, offers, contracts, and payment workflows for
             real estate operations.
@@ -135,6 +225,10 @@
             <li>
               Led the complete product lifecycle from requirements to implementation, iterating from
               real admin workflow feedback and evolving business requirements.
+            </li>
+            <li>
+              Built inventory feature and file management, and AI-assisted contract
+              generation with UI-driven prompting tied to real admin operations.
             </li>
             <li>
               Reduced early planning ambiguity with an MVP-first rollout and progressive feature
@@ -150,6 +244,67 @@
               >Project link</a
             >
           </p>
+        </article>
+      </section>
+
+      <section>
+        <h2>Selected Client Work</h2>
+
+        <article class="project">
+          <h3>DrChrono Patient Data Sync</h3>
+          <p class="project__meta">Client: DrChrono · Type: Healthcare Integration</p>
+          <ul>
+            <li>
+              Built web app features to sync patient data between DrChrono and clinic and surgery
+              center workflows.
+            </li>
+            <li>
+              Delivered reliable API integrations for operational teams managing patient records
+              across care settings.
+            </li>
+          </ul>
+        </article>
+
+        <article class="project">
+          <h3>Currents.fm Payment Distribution</h3>
+          <p class="project__meta">Client: Currents.fm · Type: Fintech Platform</p>
+          <ul>
+            <li>
+              Implemented graph-based payment distribution computation for royalty and revenue
+              splits across contributors.
+            </li>
+            <li>Integrated PayPal and Stripe for payout and billing workflows in production.</li>
+          </ul>
+        </article>
+
+        <article class="project">
+          <h3>Hitachi Partner Submission Workflows</h3>
+          <p class="project__meta">Client: Hitachi · Type: Enterprise WordPress</p>
+          <ul>
+            <li>
+              Implemented multi-stage approval flows and partner submission lifecycle management in
+              WordPress with a custom plugin.
+            </li>
+            <li>
+              Extended legacy CMS workflows to support new business rules without disrupting
+              existing partner operations.
+            </li>
+          </ul>
+        </article>
+
+        <article class="project">
+          <h3>Poker Platform Features</h3>
+          <p class="project__meta">Clients: Oddslingers, VirtuePoker · Type: Real-Time Gaming</p>
+          <ul>
+            <li>
+              Developed production features for online poker platforms, including user-facing flows
+              and backend integrations.
+            </li>
+            <li>
+              Worked in latency-sensitive, high-reliability environments where correctness and
+              stable delivery mattered.
+            </li>
+          </ul>
         </article>
       </section>
 
@@ -181,6 +336,11 @@
               >TNC tonic</a
             >
           </li>
+          <li>Built NFT staking and fusion (burn + mint) platforms on Solana</li>
+          <li>
+            Solana mobile commerce order flows for Saga and Seeker devices; Shopify-based Web3
+            e-commerce (Cyberpharmacy)
+          </li>
         </ul>
       </section>
 
@@ -189,20 +349,74 @@
         <ul>
           <li>Janus WebRTC setup for personal real-time projects</li>
           <li>IoT systems with sensors and embedded electronics</li>
-          <li>Workflow automation with n8n, bots, and AI-triggered issue creation</li>
+          <li>
+            n8n workflow automation: Zulip bot integration with Gitea issues and PRs; AI pipeline to
+            create GitHub issues from meeting transcripts when action items are detected
+          </li>
+          <li>Questionnaire-based digital maturity ranking platform for company benchmarking</li>
+          <li>
+            Currents.fm Chrome extension to play Spotify tracks from Currents discovery flows
+          </li>
           <li>Cloud deployments and CI/CD workflows on Google Cloud Platform, Vercel, and Coolify</li>
-          <li>Engineering coordination in small agile teams and short-cycle client delivery</li>
+          <li>
+            Scoped and delivered 2–3 week client projects; coordinated teams of 1–2 engineers with
+            direct client communication
+          </li>
+          <li>Firebase MCP contribution for custom tooling use cases</li>
         </ul>
       </section>
 
       <section>
         <h2>Tech Stack</h2>
-        <p>
-          JavaScript, React, Next.js, Python, Django, FastAPI, PostgreSQL, Redis, Firebase,
-          MongoDB, Tailwind CSS, Nginx, Caddy, Solana, Janus, MQTT, WebSockets, REST APIs,
-          event-driven architecture, test-driven development, asynchronous programming, and
-          multiprocessing patterns.
-        </p>
+        <div class="stack">
+          <div class="stack__group">
+            <p class="stack__label">Frontend</p>
+            <ul class="stack__tags">
+              <li class="tag">JavaScript</li>
+              <li class="tag">React</li>
+              <li class="tag">Next.js</li>
+              <li class="tag">Tailwind CSS</li>
+            </ul>
+          </div>
+          <div class="stack__group">
+            <p class="stack__label">Backend</p>
+            <ul class="stack__tags">
+              <li class="tag">Python</li>
+              <li class="tag">Django</li>
+              <li class="tag">FastAPI</li>
+              <li class="tag">REST APIs</li>
+              <li class="tag">WebSockets</li>
+              <li class="tag">MQTT</li>
+            </ul>
+          </div>
+          <div class="stack__group">
+            <p class="stack__label">Data &amp; infra</p>
+            <ul class="stack__tags">
+              <li class="tag">PostgreSQL</li>
+              <li class="tag">Redis</li>
+              <li class="tag">Firebase</li>
+              <li class="tag">MongoDB</li>
+              <li class="tag">Nginx</li>
+              <li class="tag">Caddy</li>
+            </ul>
+          </div>
+          <div class="stack__group">
+            <p class="stack__label">Web3 &amp; real-time</p>
+            <ul class="stack__tags">
+              <li class="tag">Solana</li>
+              <li class="tag">Janus</li>
+            </ul>
+          </div>
+          <div class="stack__group">
+            <p class="stack__label">Practices</p>
+            <ul class="stack__tags">
+              <li class="tag">Event-driven development</li>
+              <li class="tag">Test-driven development</li>
+              <li class="tag">Async/await</li>
+              <li class="tag">Multiprocessing</li>
+            </ul>
+          </div>
+        </div>
       </section>
 
       <section>
@@ -234,11 +448,30 @@
     </main>
 
     <footer class="footer">
+      <a href="mailto:contact@yojosebenitez.lat">contact@yojosebenitez.lat</a>
+      <span aria-hidden="true">·</span>
       <a href="https://github.com/josezy" target="_blank" rel="noopener noreferrer">GitHub</a>
       <span aria-hidden="true">·</span>
       <a href="https://www.linkedin.com/in/yojosebenitez/" target="_blank" rel="noopener noreferrer"
         >LinkedIn</a
       >
     </footer>
+    <script>
+      document.querySelectorAll(".project__screenshot-toggle").forEach((toggle) => {
+        const panel = document.getElementById(toggle.getAttribute("aria-controls"));
+        toggle.addEventListener("click", () => {
+          const expanded = toggle.getAttribute("aria-expanded") === "true";
+          toggle.setAttribute("aria-expanded", String(!expanded));
+          panel.hidden = expanded;
+          const showLabel = toggle.textContent.includes("screenshots")
+            ? "Display screenshots"
+            : "Display screenshot";
+          const hideLabel = toggle.textContent.includes("screenshots")
+            ? "Hide screenshots"
+            : "Hide screenshot";
+          toggle.textContent = expanded ? showLabel : hideLabel;
+        });
+      });
+    </script>
   </body>
 </html>

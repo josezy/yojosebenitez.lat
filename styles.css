@@ -44,6 +44,25 @@ a:hover {
   margin: 0 auto;
 }
 
+.hero__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.hero__avatar {
+  width: 112px;
+  height: 112px;
+  border-radius: 100%;
+  object-fit: cover;
+  flex-shrink: 0;
+  border: 3px solid rgba(247, 251, 245, 0.35);
+}
+
+.hero__identity {
+  min-width: 0;
+}
+
 .eyebrow {
   margin: 0 0 0.5rem;
   text-transform: uppercase;
@@ -67,6 +86,21 @@ h1 {
 .intro {
   margin: 0;
   max-width: 72ch;
+}
+
+.hero__summary {
+  margin: 0.85rem 0 0;
+  max-width: 72ch;
+  font-size: 0.95rem;
+  color: #c8ddc4;
+}
+
+.hero a {
+  color: #f7fbf5;
+}
+
+.hero a:hover {
+  color: #d9e8d7;
 }
 
 .hero__meta {
@@ -110,10 +144,6 @@ ul {
   padding-left: 1.2rem;
 }
 
-li + li {
-  margin-top: 0.25rem;
-}
-
 p {
   margin: 0.4rem 0 0;
 }
@@ -130,6 +160,81 @@ p {
   font-size: 0.93rem;
 }
 
+.project__screenshot-toggle {
+  background: none;
+  border: none;
+  padding: 0;
+  font: inherit;
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+}
+
+.project__screenshot-toggle:hover {
+  color: var(--accent);
+}
+
+.project__figures {
+  margin-top: 0.75rem;
+}
+
+.project__figures .project__figure + .project__figure {
+  margin-top: 0.75rem;
+}
+
+.project__figure {
+  margin: 0.75rem 0 0;
+}
+
+.project__figures .project__figure {
+  margin: 0;
+}
+
+.project__figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+}
+
+.stack {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.stack__group {
+  margin: 0;
+}
+
+.stack__label {
+  margin: 0 0 0.35rem;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+}
+
+.stack__tags {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin: 0;
+  padding: 0;
+}
+
+.tag {
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 0.15rem 0.55rem;
+  font-size: 0.88rem;
+  color: var(--text);
+}
+
 .footer {
   max-width: 900px;
   margin: 0 auto;
@@ -144,6 +249,11 @@ p {
 @media (max-width: 760px) {
   .hero {
     padding-top: 3.5rem;
+  }
+
+  .hero__header {
+    flex-direction: column;
+    margin-bottom: 10px;
   }
 
   section {
