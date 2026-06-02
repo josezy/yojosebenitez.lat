@@ -1,0 +1,303 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>CS Fundamentals | Jose Benitez</title>
+    <meta
+      name="description"
+      content="Reference on data structures, algorithms, system design, state management, edge-case reasoning, and validation discipline for building reliable software."
+    />
+    <meta name="robots" content="index, follow" />
+    <meta name="author" content="Jose Benitez" />
+    <link rel="canonical" href="https://yojosebenitez.lat/cs-fundamentals/" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://yojosebenitez.lat/cs-fundamentals/" />
+    <meta property="og:title" content="CS Fundamentals | Jose Benitez" />
+    <meta
+      property="og:description"
+      content="Data structures, algorithms, system design, state management, edge cases, and validation — the building blocks of robust software."
+    />
+    <meta property="og:image" content="https://yojosebenitez.lat/public/og-image.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="CS Fundamentals | Jose Benitez" />
+    <meta
+      name="twitter:description"
+      content="Data structures, algorithms, system design, state management, edge cases, and validation — the building blocks of robust software."
+    />
+    <meta name="twitter:image" content="https://yojosebenitez.lat/public/og-image.png" />
+    <link rel="icon" href="/public/favicon.ico" />
+    <meta name="theme-color" content="#243e36" />
+    <link rel="stylesheet" href="/styles.css" />
+    <link rel="stylesheet" href="/case-study.css" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "CS Fundamentals",
+        "description": "Reference on data structures, algorithms, system design, state management, edge-case reasoning, and validation discipline.",
+        "author": { "@type": "Person", "name": "Jose Benitez", "url": "https://yojosebenitez.lat/" },
+        "publisher": { "@type": "Person", "name": "Jose Benitez" },
+        "url": "https://yojosebenitez.lat/cs-fundamentals/",
+        "inLanguage": "en"
+      }
+    </script>
+  </head>
+  <body>
+    <header class="hero hero--case-study">
+      <div class="hero__inner hero__boot">
+        <div class="hero__identity">
+          <p class="eyebrow">
+            <a class="case-study__back" href="/">← Resume</a> · Article
+          </p>
+          <h1>CS Fundamentals</h1>
+          <p class="headline">Structures, algorithms, and discipline for reliable software</p>
+        </div>
+      </div>
+    </header>
+
+    <main class="layout">
+      <section>
+        <h2>Overview</h2>
+        <p class="case-study__lead">
+          Six pillars every engineer revisits: how you store data, how you process it, how you scale
+          systems, how you track change, how you think at boundaries, and how you verify correctness.
+          Use this as a quick reference before interviews, design reviews, or debugging sessions.
+        </p>
+        <nav class="article__toc" aria-label="Topics">
+          <ol>
+            <li><a href="#data-structures">Data structures</a></li>
+            <li><a href="#algorithms">Algorithms</a></li>
+            <li><a href="#system-design">System design</a></li>
+            <li><a href="#state-management">State management</a></li>
+            <li><a href="#edge-case-reasoning">Edge case reasoning</a></li>
+            <li><a href="#validation-discipline">Validation discipline</a></li>
+          </ol>
+        </nav>
+      </section>
+
+      <section id="data-structures">
+        <h2>Data structures</h2>
+        <p class="case-study__lead">
+          Ways to organize and store data so it can be accessed and modified efficiently. The right
+          structure makes algorithms fast; the wrong one makes them painfully slow.
+        </p>
+        <div class="case-study__block">
+          <h3>Key concepts</h3>
+          <ul class="article__concepts">
+            <li>Array / list</li>
+            <li>Hash map (dict)</li>
+            <li>Stack &amp; queue</li>
+            <li>Linked list</li>
+            <li>Tree (BST, heap)</li>
+            <li>Graph</li>
+            <li>Trie</li>
+          </ul>
+        </div>
+        <div class="case-study__block">
+          <h3>What to know</h3>
+          <ul>
+            <li>Time complexity for access, search, insert, delete on each.</li>
+            <li>
+              When to use which — e.g. O(1) lookups → hash map; ordering → BST; BFS/DFS → graph.
+            </li>
+            <li>Memory layout: arrays are contiguous, linked lists are pointer-chained.</li>
+            <li>
+              Trade-offs: arrays fast to access, bad to insert middle; linked lists the opposite.
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="algorithms">
+        <h2>Algorithms</h2>
+        <p class="case-study__lead">
+          Step-by-step procedures to solve problems. Algorithms define how you process your data
+          structures — sorting, searching, transforming.
+        </p>
+        <div class="case-study__block">
+          <h3>Key concepts</h3>
+          <ul class="article__concepts">
+            <li>Sorting (quicksort, mergesort, heapsort)</li>
+            <li>Binary search</li>
+            <li>BFS / DFS</li>
+            <li>Dynamic programming</li>
+            <li>Backtracking</li>
+            <li>Greedy</li>
+            <li>Divide &amp; conquer</li>
+          </ul>
+        </div>
+        <div class="case-study__block">
+          <h3>What to know</h3>
+          <ul>
+            <li>Big O notation — time and space complexity of every algorithm you use.</li>
+            <li>Recursion and the call stack; when to use iterative vs recursive.</li>
+            <li>
+              DP = overlapping subproblems + optimal substructure; identify memoization
+              opportunities.
+            </li>
+            <li>BFS = shortest path on unweighted graphs; DFS = explore / detect cycles.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="system-design">
+        <h2>System design</h2>
+        <p class="case-study__lead">
+          How to design large-scale distributed systems — databases, APIs, caching layers, queues.
+          It's less about code, more about trade-offs at scale.
+        </p>
+        <div class="case-study__block">
+          <h3>Key concepts</h3>
+          <ul class="article__concepts">
+            <li>Horizontal vs vertical scaling</li>
+            <li>Load balancing</li>
+            <li>Caching (Redis, CDN)</li>
+            <li>Databases (SQL vs NoSQL)</li>
+            <li>Message queues (Kafka, RabbitMQ)</li>
+            <li>CAP theorem</li>
+            <li>Microservices vs monolith</li>
+          </ul>
+        </div>
+        <div class="case-study__block">
+          <h3>What to know</h3>
+          <ul>
+            <li>
+              CAP theorem: you can only guarantee 2 of Consistency, Availability, Partition tolerance.
+            </li>
+            <li>
+              When to denormalize: SQL is consistent &amp; relational; NoSQL trades that for
+              scale/flexibility.
+            </li>
+            <li>Cache invalidation strategies — write-through, write-back, TTL.</li>
+            <li>Stateless services scale horizontally; stateful ones are hard.</li>
+            <li>Bottlenecks: identify the slowest component (DB reads? Network? CPU?).</li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="state-management">
+        <h2>State management</h2>
+        <p class="case-study__lead">
+          Tracking how data changes over time in an application. In frontends it's UI state; in
+          backends it's session/transaction state; in distributed systems it's consistency across
+          nodes.
+        </p>
+        <div class="case-study__block">
+          <h3>Key concepts</h3>
+          <ul class="article__concepts">
+            <li>Immutability</li>
+            <li>Unidirectional data flow</li>
+            <li>CQRS</li>
+            <li>Event sourcing</li>
+            <li>Transactions (ACID)</li>
+            <li>Optimistic vs pessimistic locking</li>
+          </ul>
+        </div>
+        <div class="case-study__block">
+          <h3>What to know</h3>
+          <ul>
+            <li>Mutable shared state is the root of most bugs — minimize it.</li>
+            <li>
+              Unidirectional flow (Redux-style): action → reducer → new state. Easy to trace, debug,
+              replay.
+            </li>
+            <li>ACID in DBs: Atomicity, Consistency, Isolation, Durability.</li>
+            <li>
+              Optimistic locking: assume no conflict, check on commit. Pessimistic: lock upfront.
+            </li>
+            <li>In UIs: local vs global vs server state have different tools and patterns.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="edge-case-reasoning">
+        <h2>Edge case reasoning</h2>
+        <p class="case-study__lead">
+          Thinking about what happens at the boundaries — empty inputs, huge inputs, concurrent
+          access, invalid data, system failures. Most bugs live here.
+        </p>
+        <div class="case-study__block">
+          <h3>Key concepts</h3>
+          <ul class="article__concepts">
+            <li>Null / empty / zero inputs</li>
+            <li>Off-by-one errors</li>
+            <li>Integer overflow</li>
+            <li>Concurrency (race conditions)</li>
+            <li>Network failures &amp; retries</li>
+            <li>Unexpected data types</li>
+          </ul>
+        </div>
+        <div class="case-study__block">
+          <h3>What to know</h3>
+          <ul>
+            <li>Always ask: what's the smallest valid input? Largest? What if it's empty/null?</li>
+            <li>Off-by-one is the most common loop bug — be precise about &lt; vs &lt;=.</li>
+            <li>
+              Concurrency: two threads modifying the same resource = race condition. Use locks,
+              atomics, or immutability.
+            </li>
+            <li>Idempotency: can you safely retry an operation? Critical for network calls.</li>
+            <li>Fail loudly on unexpected input rather than silently swallowing errors.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="validation-discipline">
+        <h2>Validation discipline</h2>
+        <p class="case-study__lead">
+          The practice of systematically verifying data correctness at every layer — input,
+          processing, output. It's the difference between robust software and software that crashes
+          in production.
+        </p>
+        <div class="case-study__block">
+          <h3>Key concepts</h3>
+          <ul class="article__concepts">
+            <li>Input validation (type, range, format)</li>
+            <li>Schema validation</li>
+            <li>Invariant assertions</li>
+            <li>Contract-first design</li>
+            <li>Sanitization (SQL injection, XSS)</li>
+            <li>Error handling patterns</li>
+          </ul>
+        </div>
+        <div class="case-study__block">
+          <h3>What to know</h3>
+          <ul>
+            <li>Validate at the boundary — as early as possible, before data touches business logic.</li>
+            <li>
+              Never trust client input. Ever. Validate server-side even if you validated client-side.
+            </li>
+            <li>
+              Distinguish validation errors (user's fault) from system errors (your fault) — return
+              different codes.
+            </li>
+            <li>
+              Invariants: conditions that must always be true. Assert them in debug; encode them in
+              types if possible.
+            </li>
+            <li>Sanitize ≠ validate. Sanitize removes/escapes dangerous chars; validate rejects bad data.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section>
+        <p class="case-study__nav">
+          <a href="/">← Back to resume</a>
+        </p>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <nav aria-label="Contact and profiles">
+        <a href="mailto:contact@yojosebenitez.lat">contact@yojosebenitez.lat</a>
+        <span aria-hidden="true">·</span>
+        <a href="https://github.com/josezy" target="_blank" rel="me noopener noreferrer">GitHub</a>
+        <span aria-hidden="true">·</span>
+        <a href="https://www.linkedin.com/in/yojosebenitez/" target="_blank" rel="me noopener noreferrer"
+          >LinkedIn</a
+        >
+      </nav>
+    </footer>
+  </body>
+</html>

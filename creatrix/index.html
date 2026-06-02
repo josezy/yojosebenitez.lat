@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Creatrix Case Study | Jose Benitez</title>
+    <meta
+      name="description"
+      content="Case study: full-stack architecture, prompt system design, and multi-turn coaching flows for Creatrix, an AI-powered creative coaching agent."
+    />
+    <meta name="robots" content="index, follow" />
+    <meta name="author" content="Jose Benitez" />
+    <link rel="canonical" href="https://yojosebenitez.lat/creatrix/" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://yojosebenitez.lat/creatrix/" />
+    <meta property="og:title" content="Creatrix Case Study | Jose Benitez" />
+    <meta
+      property="og:description"
+      content="AI coaching agent with editable prompt templates, context management, validation layers, and feedback loops."
+    />
+    <meta property="og:image" content="https://yojosebenitez.lat/images/creatrix-positioning.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Creatrix Case Study | Jose Benitez" />
+    <meta
+      name="twitter:description"
+      content="AI coaching agent with editable prompt templates, context management, validation layers, and feedback loops."
+    />
+    <meta name="twitter:image" content="https://yojosebenitez.lat/images/creatrix-positioning.jpg" />
+    <link rel="icon" href="/public/favicon.ico" />
+    <meta name="theme-color" content="#243e36" />
+    <link rel="stylesheet" href="/styles.css" />
+    <link rel="stylesheet" href="/case-study.css" />
+  </head>
+  <body>
+    <header class="hero hero--case-study">
+      <div class="hero__inner hero__boot">
+        <div class="hero__identity">
+          <p class="eyebrow">
+            <a class="case-study__back" href="/">← Resume</a> · Case study
+          </p>
+          <h1>Creatrix</h1>
+          <p class="headline">AI coaching agent for creative professionals</p>
+        </div>
+        <ul class="hero__meta">
+          <li>Client: Monadical</li>
+          <li>Role: Full-stack lead</li>
+          <li>
+            <a href="https://mycreatrix.com/" target="_blank" rel="noopener noreferrer">Live app</a>
+          </li>
+        </ul>
+      </div>
+    </header>
+
+    <main class="layout">
+      <section>
+        <h2>Overview</h2>
+        <p class="case-study__lead">
+          Creatrix is a professional creative agent that understands user patterns, strengthens
+          relationships, and generates personalized coaching action items through questionnaire-driven
+          flows and structured progression phases.
+        </p>
+        <ul class="case-study__facts">
+          <li class="case-study__fact">
+            <span class="case-study__fact-label">Problem</span>
+            <p class="case-study__fact-value">Scale personalized coaching without losing consistency</p>
+          </li>
+          <li class="case-study__fact">
+            <span class="case-study__fact-label">Stage</span>
+            <p class="case-study__fact-value">Prototype with active user onboarding</p>
+          </li>
+          <li class="case-study__fact">
+            <span class="case-study__fact-label">Stack</span>
+            <p class="case-study__fact-value">React · Python · Claude · prompt templates</p>
+          </li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Demo</h2>
+        <figure class="case-study__media">
+          <video
+            class="case-study__video"
+            controls
+            playsinline
+            muted
+            loop
+            preload="metadata"
+            poster="/images/creatrix-positioning.jpg"
+          >
+            <source src="/videos/creatrix-demo.webm" type="video/webm" />
+            <source src="/videos/creatrix-demo.mp4" type="video/mp4" />
+          </video>
+          <figcaption class="case-study__media-caption">
+            Onboarding questionnaire → coach-generated outreach action on the timeline (~19s loop).
+          </figcaption>
+        </figure>
+      </section>
+
+      <section>
+        <h2>Constraints</h2>
+        <ul>
+          <li>Multi-turn coaching flows must stay coherent across phases and sessions.</li>
+          <li>Prompt behavior needs to be editable by non-engineers through an admin UI.</li>
+          <li>Output quality must be measurable, not assumed — feedback loops are part of the product.</li>
+          <li>Prototype stage: ship learning loops while onboarding individual users.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Architecture</h2>
+        <p>
+          Daily coach output follows a structured pipeline from user inputs through context assembly
+          to generated timeline items.
+        </p>
+        <figure class="case-study__figure">
+          <img
+            src="/images/creatrix-daily-coach-pipeline.png"
+            alt="Creatrix daily coach output pipeline from assembled inputs through Claude to timeline items"
+            width="3405"
+            height="1212"
+            loading="lazy"
+          />
+        </figure>
+        <div class="case-study__block">
+          <h3>Prompt system</h3>
+          <ul>
+            <li>Editable phase prompt templates in an admin panel.</li>
+            <li>Context management aligned with the LUCID framework and multi-turn AI patterns.</li>
+            <li>Validation layers to enforce consistency across coaching turns.</li>
+          </ul>
+        </div>
+        <div class="case-study__block">
+          <h3>Feedback loop</h3>
+          <ul>
+            <li>Daily questionnaire responses with thumbs up/down scoring and comments.</li>
+            <li>Signals used to refine prompt templates and coaching effectiveness over time.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section>
+        <h2>Key decisions</h2>
+        <div class="case-study__block">
+          <h3>Templates over one-off prompts</h3>
+          <p>
+            Prompts are versioned, editable assets — not hard-coded strings — so product and coaching
+            stakeholders can iterate without redeploying application code.
+          </p>
+        </div>
+        <div class="case-study__block">
+          <h3>Validation before generation</h3>
+          <p>
+            Context assembly and guardrails run before model calls to reduce drift in multi-turn flows
+            and keep phase progression predictable.
+          </p>
+        </div>
+        <div class="case-study__block">
+          <h3>Measure coaching, not just usage</h3>
+          <p>
+            Explicit feedback on daily outputs creates a closed loop for prompt refinement instead of
+            relying on anecdotal quality checks.
+          </p>
+        </div>
+      </section>
+
+      <section>
+        <h2>Screenshots</h2>
+        <figure class="case-study__figure">
+          <img
+            src="/images/creatrix-positioning.jpg"
+            alt="Creatrix Decisions screen with a positioning reflection question and response input"
+            width="2444"
+            height="1706"
+            loading="lazy"
+          />
+        </figure>
+        <figure class="case-study__figure">
+          <img
+            src="/images/creatrix-admin-panel.jpg"
+            alt="Creatrix Admin Panel for editing phase prompt templates"
+            width="2486"
+            height="1706"
+            loading="lazy"
+          />
+        </figure>
+      </section>
+
+      <section>
+        <h2>Outcome</h2>
+        <ul>
+          <li>End-to-end platform in prototype with individual user onboarding underway.</li>
+          <li>Admin tooling for prompt iteration without engineering bottlenecks.</li>
+          <li>Structured pipeline from questionnaire inputs to actionable coaching items.</li>
+        </ul>
+        <p class="case-study__links">
+          <a href="https://mycreatrix.com/" target="_blank" rel="noopener noreferrer">Live app</a>
+          ·
+          <a href="/satellite/">Satellite case study →</a>
+        </p>
+      </section>
+
+      <section>
+        <p class="case-study__nav">
+          <a href="/">← Back to resume</a>
+        </p>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <nav aria-label="Contact and profiles">
+        <a href="mailto:contact@yojosebenitez.lat">contact@yojosebenitez.lat</a>
+        <span aria-hidden="true">·</span>
+        <a href="https://github.com/josezy" target="_blank" rel="me noopener noreferrer">GitHub</a>
+        <span aria-hidden="true">·</span>
+        <a href="https://www.linkedin.com/in/yojosebenitez/" target="_blank" rel="me noopener noreferrer"
+          >LinkedIn</a
+        >
+      </nav>
+    </footer>
+  </body>
+</html>

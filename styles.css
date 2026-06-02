@@ -254,6 +254,243 @@ p {
   flex-wrap: wrap;
 }
 
+@media (prefers-reduced-motion: no-preference) {
+  .hero__identity > * {
+    animation: rise-in 0.85s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  .hero__identity > *:nth-child(1) {
+    animation-delay: 0.08s;
+  }
+
+  .hero__identity > *:nth-child(2) {
+    animation-delay: 0.18s;
+  }
+
+  .hero__identity > *:nth-child(3) {
+    animation-delay: 0.3s;
+  }
+
+  .hero__avatar {
+    animation: rise-in 0.85s cubic-bezier(0.22, 1, 0.36, 1) 0.13s both,
+      avatar-ring 1.8s ease 1s 1 both;
+  }
+
+  .hero__boot > .intro {
+    animation: rise-in 0.85s cubic-bezier(0.22, 1, 0.36, 1) 0.42s both;
+  }
+
+  .hero__boot > .hero__summary {
+    animation: rise-in 0.85s cubic-bezier(0.22, 1, 0.36, 1) 0.53s both;
+  }
+
+  .hero__boot > .hero__meta {
+    animation: rise-in 0.85s cubic-bezier(0.22, 1, 0.36, 1) 0.65s both;
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(14px);
+    transition: opacity 0.75s cubic-bezier(0.22, 1, 0.36, 1),
+      transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .project__viz svg {
+    display: block;
+    width: 100%;
+    max-width: 280px;
+    height: auto;
+    margin-top: 0.65rem;
+    color: var(--muted);
+  }
+
+  .project__viz-orbit {
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.5;
+    stroke-dasharray: 220;
+    stroke-dashoffset: 220;
+    transform-box: view-box;
+    transform-origin: 140px 40px;
+    transform: skewX(-18deg);
+    transition: stroke-dashoffset 1.45s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .reveal.is-visible .project__viz-orbit {
+    stroke-dashoffset: 0;
+  }
+
+  .project__viz-dot {
+    fill: var(--accent);
+    opacity: 0;
+    transition: opacity 0.45s ease 1.1s;
+  }
+
+  .reveal.is-visible .project__viz-dot {
+    opacity: 1;
+  }
+
+  .project__viz-pipeline {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    flex-wrap: wrap;
+    margin-top: 0.65rem;
+    font-size: 0.82rem;
+    color: var(--muted);
+  }
+
+  .project__viz-node {
+    position: relative;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    padding: 0.2rem 0.55rem;
+    background: var(--bg);
+    opacity: 0;
+    transform: translateY(6px);
+    transition: opacity 0.55s ease, transform 0.55s ease;
+  }
+
+  .project__viz-node::after {
+    content: "";
+    position: absolute;
+    inset: -1px;
+    border: 1px solid var(--accent);
+    border-radius: inherit;
+    clip-path: inset(0 100% 0 0 round 999px);
+    pointer-events: none;
+  }
+
+  .reveal.is-visible .project__viz-node:nth-child(1) {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.16s;
+  }
+
+  .reveal.is-visible .project__viz-node:nth-child(1)::after {
+    animation: pipeline-border-loop-1 8s cubic-bezier(0.22, 1, 0.36, 1) 2s infinite;
+  }
+
+  .reveal.is-visible .project__viz-node:nth-child(3) {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.36s;
+  }
+
+  .reveal.is-visible .project__viz-node:nth-child(3)::after {
+    animation: pipeline-border-loop-2 8s cubic-bezier(0.22, 1, 0.36, 1) 2s infinite;
+  }
+
+  .reveal.is-visible .project__viz-node:nth-child(5) {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.58s;
+  }
+
+  .reveal.is-visible .project__viz-node:nth-child(5)::after {
+    animation: pipeline-border-loop-3 8s cubic-bezier(0.22, 1, 0.36, 1) 2s infinite;
+  }
+
+  .project__viz-arrow {
+    opacity: 0;
+    transition: opacity 0.4s ease;
+  }
+
+  .reveal.is-visible .project__viz-arrow:nth-child(2) {
+    opacity: 0.55;
+    transition-delay: 0.26s;
+  }
+
+  .reveal.is-visible .project__viz-arrow:nth-child(4) {
+    opacity: 0.55;
+    transition-delay: 0.47s;
+  }
+}
+
+@keyframes pipeline-border-loop-1 {
+  0%,
+  33.33%,
+  100% {
+    clip-path: inset(0 100% 0 0 round 999px);
+  }
+
+  10%,
+  20% {
+    clip-path: inset(0 0 0 0 round 999px);
+  }
+
+  28% {
+    clip-path: inset(0 0 0 100% round 999px);
+  }
+}
+
+@keyframes pipeline-border-loop-2 {
+  0%,
+  33.32%,
+  66.66%,
+  100% {
+    clip-path: inset(0 100% 0 0 round 999px);
+  }
+
+  43%,
+  53% {
+    clip-path: inset(0 0 0 0 round 999px);
+  }
+
+  61% {
+    clip-path: inset(0 0 0 100% round 999px);
+  }
+}
+
+@keyframes pipeline-border-loop-3 {
+  0%,
+  66.65%,
+  99%,
+  100% {
+    clip-path: inset(0 100% 0 0 round 999px);
+  }
+
+  76%,
+  86% {
+    clip-path: inset(0 0 0 0 round 999px);
+  }
+
+  94% {
+    clip-path: inset(0 0 0 100% round 999px);
+  }
+}
+
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes avatar-ring {
+  0% {
+    box-shadow: 0 0 0 0 rgba(124, 169, 130, 0.45);
+  }
+
+  70% {
+    box-shadow: 0 0 0 10px rgba(124, 169, 130, 0);
+  }
+
+  100% {
+    box-shadow: 0 0 0 0 rgba(124, 169, 130, 0);
+  }
+}
+
 @media (max-width: 760px) {
   .hero {
     padding-top: 3.5rem;
