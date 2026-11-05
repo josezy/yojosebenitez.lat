@@ -83,6 +83,8 @@
             "AI agents",
             "Web3",
             "React",
+            "React Native",
+            "Computer vision (OpenCV)",
             "Python",
             "Solana",
             "API integrations",
@@ -144,6 +146,77 @@
     <main class="layout">
       <section>
         <h2>Project Portfolio</h2>
+
+        <article class="project reveal" data-reveal>
+          <h3>Pleno - Answer Sheet Scanning App</h3>
+          <p class="project__meta">Client:
+            <a href="https://www.santillana.cl/sistemas-de-evaluacion/" target="_blank" rel="noopener noreferrer"
+              >Santillana</a
+            >
+            via
+            <a href="https://somosgentedigital.com/" target="_blank" rel="noopener noreferrer"
+              >Somos Gente Digital</a
+            >
+            · Type: Mobile EdTech (iOS &amp; Android)</p>
+          <div class="project__viz-pipeline" aria-hidden="true">
+            <span class="project__viz-node">QR auto-capture</span>
+            <span class="project__viz-arrow" aria-hidden="true">→</span>
+            <span class="project__viz-node">Perspective warp</span>
+            <span class="project__viz-arrow" aria-hidden="true">→</span>
+            <span class="project__viz-node">Answer grading</span>
+          </div>
+          <p>
+            Teacher app that scans printed answer sheets with the phone camera and grades tests
+            automatically, used by schools in Chile and Brazil.
+          </p>
+          <ul>
+            <li>
+              Built on-device OpenCV scanning: QR-guided auto-capture, corner-marker detection robust
+              to dark desks, halftone print, and perspective, illumination flattening, and answer
+              classification across three sheet formats.
+            </li>
+            <li>
+              Turned the app multi-tenant (Pleno Chile and Moderna Core Brazil) with typed feature
+              gating, per-tenant themes, es/pt-BR i18n, and dev/pre/pro binaries via Expo prebuild.
+            </li>
+            <li>
+              Made scan sessions offline-first with SQLite persistence and an upload retry queue that
+              survives app kills; moved OAuth tokens to SecureStore.
+            </li>
+            <li>Shipped 15+ App Store and Google Play builds over five months.</li>
+          </ul>
+          <p>
+            <a href="/pleno/">Read case study</a>
+            ·
+            <a href="https://apps.apple.com/us/app/pleno-app/id6755481422" target="_blank" rel="noopener noreferrer"
+              >App Store</a
+            >
+            ·
+            <a
+              href="https://play.google.com/store/apps/details?id=com.plenoapp.international"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Google Play</a
+            >
+            <!-- ·
+            <button
+              type="button"
+              class="project__screenshot-toggle"
+              aria-expanded="false"
+              aria-controls="pleno-screenshots"
+            >
+              Display screenshots
+            </button> -->
+          </p>
+          <!-- <div id="pleno-screenshots" class="project__figures" hidden>
+            <figure class="project__figure">
+              <img src="./images/pleno-scan.jpg" alt="Pleno camera view auto-capturing an answer sheet" loading="lazy" />
+            </figure>
+            <figure class="project__figure">
+              <img src="./images/pleno-results.jpg" alt="Pleno graded answer sheet with detected answers overlaid" loading="lazy" />
+            </figure>
+          </div> -->
+        </article>
 
         <article class="project reveal" data-reveal>
           <h3>Satellite Trajectory Visualizer</h3>
@@ -355,6 +428,25 @@
         <h2>Selected Client Work</h2>
 
         <article class="project">
+          <h3>Sumun CRM - School Services Backoffice</h3>
+          <p class="project__meta">Client: Santillana via Somos Gente Digital · Type: CRM and Analytics</p>
+          <ul>
+            <li>
+              Moved KPI dashboard metrics to the backend and aligned Excel exports with dashboard
+              filters in a Next.js, Prisma, and PostgreSQL platform for school-services teams.
+            </li>
+            <li>
+              Built visit scheduling, signed-record viewing, and certificate download flows, plus a
+              read-only global role across active schools.
+            </li>
+            <li>
+              Added Playwright end-to-end coverage tied to QA acceptance criteria, and configurable
+              overdue-action notifications for a companion coaching platform.
+            </li>
+          </ul>
+        </article>
+
+        <article class="project">
           <h3>DrChrono Patient Data Sync</h3>
           <p class="project__meta">Client: DrChrono · Type: Healthcare Integration</p>
           <ul>
@@ -477,6 +569,7 @@
             <p class="stack__label">Frontend</p>
             <ul class="stack__tags">
               <li class="tag">JavaScript</li>
+              <li class="tag">TypeScript</li>
               <li class="tag">React</li>
               <li class="tag">Next.js</li>
               <li class="tag">Tailwind CSS</li>
@@ -500,8 +593,17 @@
               <li class="tag">Redis</li>
               <li class="tag">Firebase</li>
               <li class="tag">MongoDB</li>
+              <li class="tag">Prisma</li>
               <li class="tag">Nginx</li>
               <li class="tag">Caddy</li>
+            </ul>
+          </div>
+          <div class="stack__group">
+            <p class="stack__label">Mobile</p>
+            <ul class="stack__tags">
+              <li class="tag">React Native</li>
+              <li class="tag">Expo</li>
+              <li class="tag">OpenCV</li>
             </ul>
           </div>
           <div class="stack__group">
@@ -516,6 +618,7 @@
             <ul class="stack__tags">
               <li class="tag">Event-driven development</li>
               <li class="tag">Test-driven development</li>
+              <li class="tag">Playwright E2E</li>
               <li class="tag">Async/await</li>
               <li class="tag">Multiprocessing</li>
             </ul>

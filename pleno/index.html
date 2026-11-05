@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Pleno Answer Sheet Scanning App Case Study | Jose Benitez</title>
+    <meta
+      name="description"
+      content="Case study: Santillana's Pleno mobile app — on-device OpenCV answer sheet scanning and grading for teachers in Chile and Brazil, built with React Native and Expo."
+    />
+    <meta name="robots" content="index, follow" />
+    <meta name="author" content="Jose Benitez" />
+    <link rel="canonical" href="https://yojosebenitez.lat/pleno/" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://yojosebenitez.lat/pleno/" />
+    <meta property="og:title" content="Pleno Answer Sheet Scanning App Case Study | Jose Benitez" />
+    <meta
+      property="og:description"
+      content="On-device computer vision that turns a phone camera into a test grader for teachers in Chile and Brazil."
+    />
+    <meta property="og:image" content="https://yojosebenitez.lat/public/og-image.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Pleno Answer Sheet Scanning App Case Study | Jose Benitez" />
+    <meta
+      name="twitter:description"
+      content="On-device computer vision that turns a phone camera into a test grader for teachers in Chile and Brazil."
+    />
+    <meta name="twitter:image" content="https://yojosebenitez.lat/public/og-image.png" />
+    <link rel="icon" href="/public/favicon.ico" />
+    <meta name="theme-color" content="#243e36" />
+    <link rel="stylesheet" href="/styles.css" />
+    <link rel="stylesheet" href="/case-study.css" />
+  </head>
+  <body>
+    <header class="hero hero--case-study">
+      <div class="hero__inner hero__boot">
+        <div class="hero__identity">
+          <p class="eyebrow">
+            <a class="case-study__back" href="/">← Resume</a> · Case study
+          </p>
+          <h1>Pleno – Answer Sheet Scanning App</h1>
+          <p class="headline">Grading paper tests from a phone camera, fully on-device</p>
+        </div>
+        <ul class="hero__meta">
+          <li>
+            Client:
+            <a href="https://www.santillana.cl/sistemas-de-evaluacion/" target="_blank" rel="noopener noreferrer"
+              >Santillana</a
+            >
+            via
+            <a href="https://somosgentedigital.com/" target="_blank" rel="noopener noreferrer"
+              >Somos Gente Digital</a
+            >
+          </li>
+          <li>Role: Lead mobile engineer</li>
+          <li>
+            <a href="https://apps.apple.com/us/app/pleno-app/id6755481422" target="_blank" rel="noopener noreferrer"
+              >App Store</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://play.google.com/store/apps/details?id=com.plenoapp.international"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Google Play</a
+            >
+          </li>
+        </ul>
+      </div>
+    </header>
+
+    <main class="layout">
+      <section>
+        <h2>Overview</h2>
+        <p class="case-study__lead">
+          Pleno is Santillana's assessment app for teachers. A teacher points the phone at a stack of
+          printed answer sheets, and the app auto-captures each one, identifies the student and
+          evaluation from its QR code, reads the marked answers, and syncs graded results to the Pleno
+          platform — replacing manual grading of written tests.
+        </p>
+        <ul class="case-study__facts">
+          <li class="case-study__fact">
+            <span class="case-study__fact-label">Problem</span>
+            <p class="case-study__fact-value">Reliable OMR grading from a phone camera in real classrooms</p>
+          </li>
+          <li class="case-study__fact">
+            <span class="case-study__fact-label">Stage</span>
+            <p class="case-study__fact-value">In production on iOS and Android (Chile and Brazil)</p>
+          </li>
+          <li class="case-study__fact">
+            <span class="case-study__fact-label">Stack</span>
+            <p class="case-study__fact-value">React Native · Expo · OpenCV · TypeScript · SQLite · AWS S3</p>
+          </li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Constraints</h2>
+        <ul>
+          <li>
+            Sheets are photographed on dark desks, under uneven classroom lighting, at an angle, and
+            sometimes printed in halftone on low-quality printers.
+          </li>
+          <li>Everything must run on mid- and low-end Android phones, not just recent iPhones.</li>
+          <li>
+            School networks are unreliable: no scan can be lost if the upload fails or the app is
+            killed mid-session.
+          </li>
+          <li>
+            One codebase serves two brands and countries — Pleno (Chile) and Moderna Core (Brazil) —
+            with different sheet formats, features, themes, and languages.
+          </li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Pipeline</h2>
+        <div class="case-study__block">
+          <h3>Auto-capture</h3>
+          <ul>
+            <li>Camera frames sampled at ~3 FPS; QR detection runs on a cropped region of interest.</li>
+            <li>
+              Tilt, skew, and coverage metrics computed from the QR corners drive live framing feedback;
+              a stability counter triggers capture only once the sheet is held steady.
+            </li>
+            <li>The QR payload identifies the sheet type, evaluation, and student.</li>
+          </ul>
+        </div>
+        <div class="case-study__block">
+          <h3>Geometry</h3>
+          <ul>
+            <li>
+              Search zones for the corner markers are projected per sheet layout (80-question,
+              20-question, and geometric sheets).
+            </li>
+            <li>
+              Marker detection hardened against dark tables, halftone print, and strong perspective,
+              with a fallback cascade from detected to interpolated corners.
+            </li>
+            <li>OpenCV perspective warp to a normalized sheet before reading answers.</li>
+          </ul>
+        </div>
+        <div class="case-study__block">
+          <h3>Grading</h3>
+          <ul>
+            <li>Illumination flattening that preserves paper tone, then z-score bubble classification.</li>
+            <li>Geometric sheets read via ridge detection and per-cell ink measurement.</li>
+            <li>
+              Multiple-choice scoring against the answer key, with an overlay preview and editing of
+              processed sheets before submitting.
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section>
+        <h2>Key decisions</h2>
+        <div class="case-study__block">
+          <h3>Offline-first scan sessions</h3>
+          <p>
+            Every captured sheet is persisted to SQLite and the file system before upload. A retry
+            queue survives app kills, network banners let teachers resume pending work, and partial
+            server failures are reported per sheet instead of failing the whole batch.
+          </p>
+        </div>
+        <div class="case-study__block">
+          <h3>Tenants as configuration</h3>
+          <p>
+            A typed tenant matrix gates modules per brand and country, with per-tenant themes, i18n
+            (es-419, es-CL, pt-BR), and separate dev / pre / pro binaries generated through Expo
+            prebuild (CNG) instead of hand-maintained native projects.
+          </p>
+        </div>
+        <div class="case-study__block">
+          <h3>Golden tests for computer vision</h3>
+          <p>
+            A golden OCR harness with real warped sheet fixtures runs the detector end to end, so
+            changes to marker detection or classification thresholds are checked against known
+            answers before reaching teachers.
+          </p>
+        </div>
+        <div class="case-study__block">
+          <h3>Security and permission UX</h3>
+          <p>
+            OAuth tokens moved from AsyncStorage to SecureStore, login uses ephemeral browser sessions,
+            and the iOS tracking prompt is deferred until after the first successful scan — so the
+            first-run experience starts with the camera, not with permission dialogs.
+          </p>
+        </div>
+      </section>
+
+      <!--
+      <section>
+        <h2>Screenshots</h2>
+        <figure class="case-study__figure">
+          <img
+            src="/images/pleno-scan.jpg"
+            alt="Pleno camera view auto-capturing an answer sheet with QR framing feedback"
+            width=""
+            height=""
+            loading="lazy"
+          />
+        </figure>
+        <figure class="case-study__figure">
+          <img
+            src="/images/pleno-results.jpg"
+            alt="Pleno graded answer sheet with detected answers overlaid"
+            width=""
+            height=""
+            loading="lazy"
+          />
+        </figure>
+        <figure class="case-study__figure">
+          <img
+            src="/images/pleno-home.jpg"
+            alt="Pleno home screen with courses, calendar, and upload history"
+            width=""
+            height=""
+            loading="lazy"
+          />
+        </figure>
+      </section>
+      -->
+
+      <section>
+        <h2>Outcome</h2>
+        <ul>
+          <li>Shipped 15+ store builds across iOS and Android, from 1.19 through 1.21, with 2.0 in progress.</li>
+          <li>Extended the app from Chile to Brazil (Moderna Core) from a single codebase.</li>
+          <li>
+            Three sheet formats read on-device, plus mock-exam batches where each sheet's QR resolves
+            its class, subject, evaluation, and student.
+          </li>
+          <li>
+            Added nominative answer-sheet generation, OCR student identification with suggestions, PDF
+            preview, and English / Portuguese sheets.
+          </li>
+        </ul>
+        <p class="case-study__links">
+          <a href="https://apps.apple.com/us/app/pleno-app/id6755481422" target="_blank" rel="noopener noreferrer"
+            >App Store</a
+          >
+          ·
+          <a
+            href="https://play.google.com/store/apps/details?id=com.plenoapp.international"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Google Play</a
+          >
+          ·
+          <a href="/satellite/">Satellite case study →</a>
+        </p>
+      </section>
+
+      <section>
+        <p class="case-study__nav">
+          <a href="/">← Back to resume</a>
+        </p>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <nav aria-label="Contact and profiles">
+        <a href="mailto:contact@yojosebenitez.lat">contact@yojosebenitez.lat</a>
+        <span aria-hidden="true">·</span>
+        <a href="https://github.com/josezy" target="_blank" rel="me noopener noreferrer">GitHub</a>
+        <span aria-hidden="true">·</span>
+        <a href="https://www.linkedin.com/in/yojosebenitez/" target="_blank" rel="me noopener noreferrer"
+          >LinkedIn</a
+        >
+      </nav>
+    </footer>
+  </body>
+</html>
